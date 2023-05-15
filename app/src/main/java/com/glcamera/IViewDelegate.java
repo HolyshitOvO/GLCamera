@@ -15,6 +15,7 @@
  */
 package com.glcamera;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -36,7 +37,7 @@ public interface IViewDelegate {
 
     View getRootView();
 
-    void initWidget();
+    void initWidget(Activity activity);
 
     void initOptionMenu(Menu menu);
     void onWindowFocusChanged(boolean hasFocus);

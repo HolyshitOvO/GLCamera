@@ -15,11 +15,13 @@
  */
 package com.glcamera;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.TypedValue;
@@ -35,7 +37,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-import butterknife.ButterKnife;
+// import butterknife.ButterKnife;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
@@ -62,12 +64,13 @@ public abstract class AppViewDelegate implements IViewDelegate {
                     .hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
     @Override
-    public void create(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        int rootLayoutId = getRootLayoutId();
+    public void create(@NonNull LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
+        // int rootLayoutId = getRootLayoutId();
         mInflater = inflater;
-        rootView = inflater.inflate(rootLayoutId, container, false);
+        // rootView = inflater.inflate(rootLayoutId, container, false);
+        rootView = inflater.inflate(R.layout.activity_card_camera, container, false);
         initContentView();
-        ButterKnife.bind(this, rootView);
+        // ButterKnife.bind(this, rootView);
     }
 
 
@@ -129,11 +132,11 @@ public abstract class AppViewDelegate implements IViewDelegate {
     }
     public void setRootView(View rootView) {
         this.rootView = rootView;
-        ButterKnife.bind(this, rootView);
+        // ButterKnife.bind(this, rootView);
     }
 
     @Override
-    public void initWidget() {
+    public void initWidget(Activity activity) {
 
     }
 

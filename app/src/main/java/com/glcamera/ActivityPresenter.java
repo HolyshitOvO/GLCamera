@@ -62,7 +62,7 @@ public abstract class ActivityPresenter<T extends IViewDelegate> extends AppComp
         viewDelegate.create(getLayoutInflater(), null, savedInstanceState);
         setContentView(viewDelegate.getRootView());
         initToolbar();
-        viewDelegate.initWidget();
+        viewDelegate.initWidget(this);
         bindEvenListener();
         loadData();
         if (softInputState()) {

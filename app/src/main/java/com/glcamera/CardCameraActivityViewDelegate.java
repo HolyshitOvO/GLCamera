@@ -1,18 +1,19 @@
 package com.glcamera;
 
+import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
 
-import butterknife.BindView;
+// import butterknife.BindView;
 
 /**
  * 身份证扫描
  */
 public class CardCameraActivityViewDelegate extends AppViewDelegate {
 
-    @BindView(R.id.camPreview)
+    // @BindView(R.id.camPreview)
     CameraPreviewView mCameraPreview;
-    @BindView(R.id.btn_take_pic)
+    // @BindView(R.id.btn_take_pic)
     Button mBtnTakePic;//拍照
 
     @Override
@@ -49,7 +50,9 @@ public class CardCameraActivityViewDelegate extends AppViewDelegate {
 
 
     @Override
-    public void initWidget() {
+    public void initWidget(Activity activity) {
+        mCameraPreview = (CameraPreviewView) activity.findViewById(R.id.camPreview);
+        mBtnTakePic = (Button) activity.findViewById(R.id.btn_take_pic);
         mBtnTakePic.setEnabled(true);
         mCameraPreview.setCameraFrontBack(CameraPreviewView.CameraBack);
     }
